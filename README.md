@@ -5,7 +5,7 @@ An implementation similar to that of Pastebin and other text storage websites, i
 
  - node.js - evented I/O for the backend
  - Express - fast node.js network app framework
- - MongoDB - database for storing the jokes
+ - MongoDB - database for storing the pastes and other related data
  - Mongoosejs - ODM for interacting with the MongoDB
  
 Other developer dependencies include:
@@ -28,7 +28,6 @@ $ cd name
 $ node populatepastes <mongourl> <texts>
 ```
 Install the dependencies and devDependencies and start the server.
-
 
 ```sh
 $ cd name
