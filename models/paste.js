@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 var pasteSchema = new Schema({
     idx: String,
     paste: String,
-    date: Date
+    date: Date,
+    title: String
 });
 
 //Export function to create "SomeModel" model class

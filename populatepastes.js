@@ -1,11 +1,10 @@
 //
 //  Uses script at https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose to populate the database
-//  Creates a Joke Collection and fetches jokes from ICNDB for testing
+//  
 //
 
-console.log('This script populates jokes taken from ICNDB to your database for testing.');
 console.log('Specified database as argument - ');
-console.log('e.g.: populatedb mongodb://your_username:your_password@your_dabase_url <num of jokes to scrape>');
+console.log('e.g.: populatedb mongodb://your_username:your_password@your_dabase_url <num of texts to scrape>');
 
 // Get arguments passed on command line
 var userArgs = process.argv.slice(2);
@@ -16,7 +15,7 @@ if (!userArgs[0].startsWith('mongodb://')) {
 }
 
 if (!number[0]) {
-    console.log('NOTE: You did not specify number to scrape... Defaulting to 1 Joke');
+    console.log('NOTE: You did not specify number to scrape... Defaulting to 1 Paste');
     number = 1;
 }
 

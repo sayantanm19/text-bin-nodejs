@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+
+<div class="row">
+    <div class="input-field col s12">
+        <i class="material-icons prefix">mode_edit</i>
+        <textarea id="pastex" class="materialize-textarea validate" type="text" name="paste" required="" aria-required="true"></textarea>
+        <label for="pastex">Paste here</label>
+        {{!-- <span class="helper-text" data-error="wrong" data-success="right"></span> --}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field col s12">
+        <i class="material-icons prefix">mode_edit</i>
+        <textarea id="pastexx" name="paste"></textarea>
+        <!--label for="pastexx">Paste here</label-->
+        {{!-- <span class="helper-text" data-error="wrong" data-success="right"></span> --}}
+    </div>
+</div>
+
+<script src="codemirror/lib/codemirror.js"></script>
+
+<script src="codemirror/mode/javascript/javascript.js"></script>
+
+<script>
+    var minLines = 5;
+    var startingValue = '';
+    for (var i = 1; i < minLines; i++) {
+        startingValue += '\n';
+    }
+    var myTextArea = document.getElementById("pastexx");
+    var editor = CodeMirror.fromTextArea(myTextArea, {
+        lineNumbers: true,
+        gutter: true,
+        lineWrapping: true,
+        value: startingValue
+    });
+    editor.setValue(startingValue);
+</script>

@@ -5,6 +5,7 @@
  *
  * Made By MaterializeCSS.com
  */
+ @import url('https://fonts.googleapis.com/css?family=Lato');
 
 .icon-block {
   padding: 0 15px;
@@ -18,8 +19,24 @@
 }
 
 #pasteform {
-  margin: 20px;
+  margin-top: 20px;
   padding-left: 30px;
   padding-right: 30px;
+  /*
   box-shadow: 2px 2px 2px 5px;
+  */
+}
+
+.paste {
+  font-family: 'Lato', sans-serif;
+  height: 200px;
+}
+
+.CodeMirror {
+  height: auto;
+  width: 100%;
+}
+
+.card-panel{
+  display: flex;
 }

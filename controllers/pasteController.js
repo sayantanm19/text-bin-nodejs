@@ -1,6 +1,4 @@
 var Paste = require('../models/paste');
-var path = require('path');
-var bodyParser = require('body-parser');
 
 const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
@@ -9,9 +7,11 @@ var datenow = new Date().toString();
 
 // GET request
 exports.paste_create_get = function(req, res, next) {
-    //res.render('genre_form', { title: 'Create Genre'});
+    res.render('input_form_editor', {
+        language: 'javascript'
+    });
     //NOTE: sendFile is independent of middleware static
-    res.sendFile('index.html', { root: path.join(__dirname, '../public') })
+    //res.sendFile('index.html', { root: path.join(__dirname, '../public') })
 
 };
 
@@ -23,12 +23,14 @@ exports.paste_create_post = [
     //console.log(req.body.paste);
     //console.log(req.body.idx);
 
-    // Validate that the name field is not empty.
+    // Validate that the paste field is not empty.
     body('paste', 'Enter something to post').isLength({ min: 1 }).trim(),
     body('idx', 'ID should not be empty.').isLength({ min: 1 }).trim(),
+    
+    //body('title', )
 
     // Sanitize (trim and escape) the paste and id field.
-    sanitizeBody('paste').trim().escape(),
+    sanitizeBody('paste').trim(),
     sanitizeBody('idx').trim(),
 
 
@@ -43,15 +45,17 @@ exports.paste_create_post = [
           { 
             idx: req.body.idx,
             paste: req.body.paste,
-            date: datenow
+            date: datenow,
+            title: req.body.title
           }
         );
 
 
         if (!errors.isEmpty()) {
             // There are errors. Render the form again with sanitized values/error messages.
-            //res.render('genre_form', { title: 'Create Genre', genre: genre, errors: errors.array()});
-            res.sendFile('index.html', { root: path.join(__dirname, '../public') })
+            console.log(errors.array())
+            res.render('input_form_editor', { errors: errors.array()});
+            //res.sendFile('index.html', { root: path.join(__dirname, '../public') })
             console.log('Errors while submitting, plx to recheck!!!')
         return;
         }
