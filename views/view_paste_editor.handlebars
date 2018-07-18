@@ -1,24 +1,36 @@
 <div class="div z-depth-0">
-    <div class="row">
+    <div class="row display">
         <div class="col s12">
-
             <h3>{{paste.title}}</h3>
             <textarea id="result">{{paste.paste}}</textarea>
         </div>
         <div class="col s12">
             <h5>RAW Format</h5>
-                <textarea class="paste">{{paste.paste}}</textarea>
+                <textarea class="paste" readonly>{{paste.paste}}</textarea>
         </div>
-        <div class="col s12">
+        <div class="col s12 date">
                 <i class="material-icons prefix">date_range</i>
-                <span><b>Posted on: </b>{{paste.date}}</span>
+                <span><b>Posted on: </b>{{formattedDate paste.createdAt}}</span>
+        </div>
+        <div class="col s12 date">
+                <i class="material-icons prefix">access_time</i>
+                <span><b>Expires: </b>{{secondsAgo paste.expirationDate}}</span>
+                <span></span>
+        </div>
+        <div class="col s8">
+                {{!-- <i class="material-icons prefix">share</i> --}}
+                <h4>Share this Paste</h4>
+                <input id="share" value={{url}} readonly></input>
+                <button class="btn" onclick="copyText();">Copy</button>
         </div>
     </div>
 </div>
 
 
 <script src="codemirror/lib/codemirror.js"></script>
-<!--script src="codemirror/mode/javascript/javascript.js"></script-->
+<script src="codemirror/mode/javascript/javascript.js"></script>
+
+<!-- Initizalize CodeMirror Editor -->
 <script>
     var readOnlyCodeMirror = CodeMirror.fromTextArea(document.getElementById('result'), {
         mode: "javascript",

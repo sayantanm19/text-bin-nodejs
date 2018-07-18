@@ -22,9 +22,7 @@
   margin-top: 20px;
   padding-left: 30px;
   padding-right: 30px;
-  /*
-  box-shadow: 2px 2px 2px 5px;
-  */
+
 }
 
 .paste {
@@ -37,6 +35,27 @@
   width: 100%;
 }
 
-.card-panel{
+.card-panel {
   display: flex;
+}
+
+.notfound {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.notfound > i {
+  font-size: 10rem;
+}
+
+.date {
+  display: flex;
+  font-size: 1.2rem;
+}
+
+.display > .col {
+  padding-bottom: 20px;
 }

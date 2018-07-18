@@ -6,16 +6,8 @@ var Schema = mongoose.Schema;
 var pasteSchema = new Schema({
     idx: String,
     paste: String,
-    title: String,
-    expirationDate: {
-        type: Date,
-        expires: 0
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
-
+    date: Date,
+    title: String
 });
 
 //Export function to create "SomeModel" model class

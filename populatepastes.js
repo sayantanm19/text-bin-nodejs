@@ -1,8 +1,9 @@
 //
-//  Uses script at https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose to populate the database
-//  
+//  Uses script at https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose to populate the database.
+//  Creates a Paste Collection by fetching Lorem Ipsum from BaconIpsum.
 //
 
+console.log('This script populates pastes taken from BaconIpsum to your database for testing.');
 console.log('Specified database as argument - ');
 console.log('e.g.: populatedb mongodb://your_username:your_password@your_dabase_url <num of texts to scrape>');
 
@@ -15,7 +16,7 @@ if (!userArgs[0].startsWith('mongodb://')) {
 }
 
 if (!number[0]) {
-    console.log('NOTE: You did not specify number to scrape... Defaulting to 1 Paste');
+    console.log('NOTE: You did not specify number to scrape... Defaulting to 1 paste');
     number = 1;
 }
 
@@ -33,17 +34,21 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-var pastes = []
+var pastes = [];
 var datenow = new Date;
+var exp_date = new Date(Date.now() + (365 * 24 * 3600 * 1000));
 
-var subfix = 1;
+var subfix = 700;
 
 //Actual Saving to DB
-function pasteCreate(id, paste, date) {
+function pasteCreate(id, paste, title) {
   pastedetail = {
     idx: id,
     paste: paste,
-    date: date
+    title: title,
+	createdAt: datenow,
+	expirationDate: exp_date
+	
   }
     
   var paste = new Paste(pastedetail);    
@@ -79,9 +84,9 @@ function fill(data) {
 
   //console.log(datenow.toDateString());
 	
-	for(i=0;i<size;i++) {
+	for(i=0; i<size; i++) {
     //console.log(data[i]);
-    pasteCreate(String('test' + subfix), data[i], datenow.toDateString());
+    pasteCreate(String('test' + subfix), data[i], String('Title' + subfix));
     subfix++;
 	}
 	//mongoose.connection.close();

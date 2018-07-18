@@ -7,6 +7,8 @@ An implementation similar to that of Pastebin and other text storage websites, i
  - Express - fast node.js network app framework
  - MongoDB - database for storing the pastes and other related data
  - Mongoosejs - ODM for interacting with the MongoDB
+ - Momentjs - Formatting dates
+ - shortid - For generating small unique ID for saving posts
  
 Other developer dependencies include:
 
@@ -37,9 +39,9 @@ $ npm run devstart
 
 ### Todos
 - ~~Write a welcome page and present a graphical way to display the pastes(currently returns only JSON objects)~~
+- ~~Implement last few pastes board~~
 - Add proper MVC structure
 - Implement private pastes feature
-- Implement last few pastes board
 - Implement security features and best-practices
 - Figure out how to use CodeMirror as npm package
 - Refactor code and remove comments

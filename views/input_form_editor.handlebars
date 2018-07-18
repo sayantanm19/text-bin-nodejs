@@ -1,13 +1,13 @@
 <div class="row">
     
     {{#if errors}}
-    {{#each errors}}
-    <div class="card-panel teal">
-        <div class="col s12">
-            <div class="white-text">{{this.msg}}</div>
+        {{#each errors}}
+        <div class="card-panel red">
+            <div class="col s12">
+                <div class="white-text">{{this.msg}}</div>
+            </div>
         </div>
-    </div>
-    {{/each}}
+        {{/each}}
     {{/if}}
 
     <form method="POST" class="col s12 z-depth-0" id="pasteform">
@@ -18,45 +18,49 @@
                 <div class="col s12">
                     <i class="material-icons prefix">mode_edit</i>
                 </div>
-                <div class="col s12">
+                <div class="input-field col s12">
                     <textarea id="pasteinput" type="text" name="paste"></textarea>
                     {{!-- <label for="pastex">Paste here</label> --}}
-                    {{!-- <span class="helper-text" data-error="wrong" data-success="right"></span> --}}
                 </div>
             </div>
 
             <div class="row">
-                <div class="input-field col s9">
+                <div class="input-field col s12">
                     <h5>Enter a Title</h5>
-                    <i class="material-icons prefix">collections_bookmark</i>
-                    <input value="Untitled" id="titleinput" type="text" name="title">
-                    {{!-- <label class="active" for="idinput">Enter title (optional)</label> --}}
-                    {{!-- <span class="helper-text" data-error="wrong" data-success="right"></span> --}}
                 </div>
-            </div>
 
-            <div class="row">
                 <div class="input-field col s9">
-                    <h5>Enter an ID to be mapped to</h5>
-                    <i class="material-icons prefix">account_circle</i>
-                    <input value="#prefilledhash" id="idinput" type="text" name="idx" class="validate" required="" aria-required="true">
-                    <!--label class="active" for="idinput">Enter your link</label-->
-                    {{!-- <span class="helper-text" data-error="wrong" data-success="right"></span> --}}
+                    <i class="material-icons prefix">collections_bookmark</i>
+                    <input value="Untitled" id="titleinput" type="text" name="title" class="validate" required="" aria-required="true">
+                    {{!-- <label class="active" for="idinput">Enter title (optional)</label> --}}
                 </div>
             </div>
 
-
-            <!--div class="row">
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">fingerprint</i>
-                    <input type="checkbox" id="test5" />
-                    <label for="test5">Private?</label>
+            <div class="row">
+                <div class="input-field col s12">
+                    <h5>Enter an ID to be mapped to</h5>
                 </div>
-            </div-->
-
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input value={{shortid}} id="idinput" type="text" name="idx" class="validate" required="" aria-required="true">
+                    <!--label class="active" for="idinput">Enter your link</label-->
+                </div>
+            </div>
 
             <div class="row">
-                <div class="col s6 offset-s6">
+                <div class="input-field col s12">
+                    <h5>Enter Timeout</h5>
+                </div>
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">access_time</i>
+                    <input value="10" id="ttlinput" type="number" name="ttl" class="validate" required="" aria-required="true" min="0" oninput="this.value = Math.abs(this.value)">
+                    <p class="grey-text text-lighten-1">In Minutes</p>
+                    {{!-- <label class="active" for="idinput">In Minutes</label> --}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s8 offset-s8">
                     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
                     </button>
@@ -68,21 +72,17 @@
 
 <script src="codemirror/lib/codemirror.js"></script>
 <script src="codemirror/mode/javascript/javascript.js"></script>
-<script src="codemirror/mode/python/python.js"></script>
 
-
+<!-- Initizalize CodeMirror Editor -->
 <script>
     var minLines = 5;
     var startingValue = '';
     for (var i = 1; i < minLines; i++) {
         startingValue += '\n';
     }
-    //console.log(Object.keys({{language}})[0])
-    //console.log({{language}})
-    var highlight = 'javascript'
-    //console.log(highlight);
     var editor = CodeMirror.fromTextArea(document.getElementById("pasteinput"), {
-        mode: highlight,
+        mode: 'javascript',
+        //theme: 'base16-light',
         lineNumbers: true,
         gutter: true,
         lineWrapping: true,

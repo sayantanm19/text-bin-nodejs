@@ -8,48 +8,50 @@
   <!-- CSS  -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
   <link rel="stylesheet" href="codemirror/lib/codemirror.css">
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-
-
 </head>
 <body>
-  <nav class="light-red darken-5" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Text-bin</a>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-wrapper container">
+      <a href="#!" class="brand-logo"><i class="fas fa-sticky-note"></i>Text-bin</a>
+      <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">New Paste</a></li>
-        <li><a href="#">Goto Paste</a></li>
-        <li><a href="#">Previous Pastes</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="/new">New Paste</a></li>
+        <li><a href="/latest">Latest Pastes</a></li>
+        <li><a href="https://github.com/sayantanm19/store-dem-text/blob/master/README.md">About</a></li>
       </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">New Paste</a></li>
-        <li><a href="#">Goto Paste</a></li>
-        <li><a href="#">Previous Pastes</a></li>
-        <li><a href="#">About</a></li>
-      </ul>
-
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+
+  <ul class="sidenav" id="mobile">
+        <li><a href="/new">New Paste</a></li>
+        <li><a href="/latest">Latest Pastes</a></li>
+        <li><a href="https://github.com/sayantanm19/store-dem-text/blob/master/README.md">About</a></li>
+  </ul>
+
+
+
   <div class="container">
         {{{body}}}   
-  </div>  
+  </div> 
+
+<!-- Footer --> 
 <footer class="page-footer">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
                 <h5 class="white-text">Made with Node.js and Express</h5>
-                <p class="grey-text text-lighten-4">And some help from CodeMirror editor.</p>
+                <p class="grey-text text-lighten-4">And CodeMirror editor plugin.</p>
               </div>
-              <div class="col l4 offset-l2 s12">
+              <div class="col l6 offset-12 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!"><i class="fab fa-facebook"></i> Facebook</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!"><i class="fab fa-twitter-square"></i> Twitter</a></li>
                 </ul>
               </div>
             </div>
@@ -57,16 +59,15 @@
           <div class="footer-copyright">
             <div class="container">
             © MIT
-            <a class="grey-text text-lighten-4 right" href="#!">More Projects</a>
+            <a class="grey-text text-lighten-4 right" href="https://github.com/sayantanm19">More Projects</a>
             </div>
           </div>
   </footer>
 
   <!--  Scripts-->
-
-
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.min.js"></script>
+  
+  {{!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="js/init.js"></script>
 
   </body>
