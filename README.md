@@ -1,5 +1,7 @@
-# store-dem-text
+# text-bin-nodejs
 An implementation similar to that of Pastebin and other text storage websites, in Nodejs and Express.
+
+![Quick Demo](images/example.gif)
 
 ### Tech Stack
 
@@ -13,7 +15,7 @@ An implementation similar to that of Pastebin and other text storage websites, i
 Other developer dependencies include:
 
 - nodemon - to auto-reload the server after changes
-- Request - used for populating the database for test use
+- request - used for populating the database for test use
 
 ### Installation
 
@@ -40,11 +42,12 @@ $ npm run devstart
 ### Todos
 - ~~Write a welcome page and present a graphical way to display the pastes(currently returns only JSON objects)~~
 - ~~Implement last few pastes board~~
-- Add proper MVC structure
+- ~~Add proper MVC structure~~
+- ~~Remove comments~~
 - Implement private pastes feature
 - Implement security features and best-practices
 - Figure out how to use CodeMirror as npm package
-- Refactor code and remove comments
+
 
 ### License
 MIT License

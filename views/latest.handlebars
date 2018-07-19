@@ -1,4 +1,5 @@
 <h3>Lastest Pastes</h3>
+
 {{#each latest}}
     <div class="card-panel">
         <div class="row">
@@ -14,11 +15,10 @@
             <div class="col l2 s12">
                 <span><b>Expires: </b>{{secondsAgo this.expirationDate}}</span>
             </div>
-            <div class="col s12 offset-s10">
+            <div class="col s6 offset-s6">
                 <a class="btn" href="/pastes/{{this.idx}}">Goto Post</a>
             </div>
         </div>
-
     </div>
 
 {{/each}}
