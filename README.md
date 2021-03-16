@@ -1,5 +1,5 @@
 # text-bin-nodejs
-An implementation similar to that of Pastebin and other text storage websites, in Nodejs and Express. Uses MongoDB as database. 
+An implementation similar to that of Pastebin and other text storage websites, in Nodejs and Express. Uses MongoDB as database. This project has been updated using the MERN stack here: https://github.com/sayantanm19/text-bin-mern
 
 ![Quick Demo](images/example.gif)
 
@@ -38,15 +38,6 @@ $ cd name
 $ npm install -d
 $ npm run devstart
 ```
-
-### Todos
-- ~~Write a welcome page and present a graphical way to display the pastes(currently returns only JSON objects)~~
-- ~~Implement last few pastes board~~
-- ~~Add proper MVC structure~~
-- Implement private pastes feature
-- Implement security features and best-practices
-- Figure out how to use CodeMirror as npm package
-
 
 ### License
 MIT License
